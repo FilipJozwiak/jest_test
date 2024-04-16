@@ -58,12 +58,162 @@ function isPalindrome(text) {
 }
 
 // Napisz funkcję, która zwraca n-ty element ciągu Fibonacciego.
-function fibonacci(n){
-    if (n < 2){
+function fibonacci(n) {
+    if (n < 2) {
         return 1;
-    } else{
-        return fibonacci(n-1) + fibonacci(n - 2);
+    } else {
+        return fibonacci(n - 1) + fibonacci(n - 2);
     }
+}
+
+// Napisz funkcję, która sprawdza, czy podana liczba jest liczbą pierwszą.
+function isPrime(a) {
+    if (a < 4 && a > 0) {
+        return true;
+    } else if (a <= 0) {
+        return false;
+    }
+    for (let i = 2; i < a; i++) {
+        if (a % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+// Napisz funkcję, która zamienia liczbę dziesiętną na system binarny.
+function toBinary(a) {
+    if (a == 1) {
+        return "1";
+    }
+    let signs = []
+    while (a > 0) {
+        let res = a / 2;
+        if (res % 1 != 0) {
+            signs.push("1");
+            a = Math.floor(res);
+        } else {
+            signs.push("0");
+            a = res;
+        }
+    }
+    text = ""
+    for (let i = signs.length - 1; i >= 0; i--) {
+        text += signs[i]
+    }
+    return text;
+}
+
+// Napisz funkcję, która odwraca kolejność liter w podanym ciągu znaków.
+function invertText(text) {
+    let result = "";
+    for (let i = text.length - 1; i >= 0; i--) {
+        result += text.charAt(i);
+    }
+    return result;
+}
+
+// Napisz funkcję, która sprawdza, czy dwa obiekty są identyczne.
+function identical(a, b) {
+    return a === b;
+}
+
+// Napisz funkcję, która zlicza liczbę wystąpień danej litery w ciągu znaków.
+function countLetter(text, letter) {
+    let result = 0;
+    for (let i = 0; i < text.length; i++) {
+        if (text.charAt(i) == letter) {
+            result++;
+        }
+    }
+    return result;
+}
+
+// Napisz funkcję, która usuwa wszystkie białe znaki z podanego ciągu znaków.
+function removeWhitespaces(text) {
+    let result = "";
+    for (let i = 0; i < text.length; i++) {
+        if (text.charAt(i) != " ") {
+            result += text.charAt(i);
+        }
+    }
+    return result;
+}
+
+// Napisz funkcję, która usuwa wszystkie elementy z tablicy o podanej wartości.
+function removeValue(tab, number) {
+    let arr = [];
+    for (let i = 0; i < tab.length; i++) {
+        if (tab[i] != number) {
+            arr.push(tab[i]);
+        }
+    }
+    return arr;
+}
+
+// Napisz funkcję, która zwraca losowy element z podanej tablicy.
+function randomItem(tab) {
+    let index = Math.floor(Math.random() * (tab.length));
+    return tab[index];
+}
+
+// Napisz funkcję, która konwertuje temperaturę z Celsiusza na Fahrenheit.
+function CelsiusToFahrenheit(c_degrees) {
+    return c_degrees * 9 / 5 + 32;
+}
+
+// Napisz funkcję, która zwraca datę dzisiejszą w formacie "RRRR-MM-DD". Bez testów.
+function TodayString() {
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth();
+    let day = date.getDate();
+    if (month < 10) {
+        month = "0" + month;
+    }
+    if (day < 10) {
+        day = "0" + day;
+    }
+    return year + "-" + month + "-" + day;
+}
+
+// Napisz funkcję, która zwraca indeks pierwszego wystąpienia danego elementu w tablicy.
+function indexOfItem(tab, element) {
+    let arr = [];
+    return tab.indexOf(element);
+}
+
+// Napisz funkcję, która generuje losowy ciąg znaków o podanej długości.
+function randomText(num) {
+    let res = "";
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < num; i++) {
+        res += characters.charAt(Math.floor(Math.random() * characters.length - 1));
+    }
+    return res;
+}
+
+// Napisz funkcję, która zwraca tablicę unikalnych elementów z podanej tablicy
+function onlyUniqe(tab) {
+    let arr = [];
+    for (let i = 0; i < tab.length; i++) {
+        let item = tab[i];
+        let _sum = 0;
+        for (let j = 0; j < tab.length; j++) {
+            if (tab[j] == item) {
+                _sum++;
+            }
+        }
+        if (_sum == 1) {
+            arr.push(item);
+        }
+    }
+    return arr;
+}
+
+// Napisz funkcję, która zwraca podaną wartość długość w metrach na mile
+function metersToMiles(meters) {
+    return meters / 1608;
 }
 
 function BubbleSort(tab) {
@@ -113,4 +263,4 @@ function SelectionSort(tab) {
     }
 }
 
-module.exports = { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, BubbleSort, InsertSort, SelectionSort };
+module.exports = { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, BubbleSort, InsertSort, SelectionSort };
