@@ -1,4 +1,4 @@
-const { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isPrime2, BubbleSort, InsertSort, SelectionSort } = require('./functions.js');
+const { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isPrime2, analyzeInput, analyzeInput2, BubbleSort, InsertSort, SelectionSort } = require('./functions.js');
 
 test("sum test", () => {
     expect(sum(1, 5)).toBe(6);
@@ -154,6 +154,20 @@ test("isPrime2 test", () => {
     expect(isPrime2(66)).toBe(false);
 })
 
+test("analyzeInput test", () => {
+    expect(analyzeInput([], 6)).toBe(false);
+    expect(analyzeInput([1, 2, 3, 4, 5, 0], 6)).toBe(false);
+    expect(analyzeInput([1, 2, 3, 4, 5, 0], 4)).toBe(true);
+    expect(analyzeInput([1, 2, 3, 4, 5, 0], 5)).toBe(false);
+})
+
+test("analyzeInput2 test", () => {
+    expect(analyzeInput2([], 6)).toBe(0);
+    expect(analyzeInput2([1, 2, 3, 4, 5, 0], 6)).toBe(0);
+    expect(analyzeInput2([1, 2, 3, 4, 5, 0], 4)).toBe(1);
+    expect(analyzeInput2([1, 2, 3, 4, 5, 0], 5)).toBe(0);
+    expect(analyzeInput2([1, 2, 3, 4, 5, 0], 1)).toBe(4);
+})
 test("BubbleSort test", () => {
     let tab = [1, -1, 5, 15, 33, -20, 70];
     BubbleSort(tab);

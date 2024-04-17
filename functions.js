@@ -264,10 +264,10 @@ function UnitStep(x, p) {
 }
 
 // Zapisz algorytm sprawdzający czy dana liczba całkowita n>=2 jest liczbą parzystą
-function isEven(n){
-    if (n % 2 == 0){
+function isEven(n) {
+    if (n % 2 == 0) {
         return true;
-    } else{
+    } else {
         return false;
     }
 }
@@ -283,6 +283,28 @@ function isPrime2(n) {
     return prime;
 }
 
+// Algorytm wczytuje z wejścia kolejne liczby całkowite dodatnie. Wczytywanie liczb kończy się po wczytaniu sygnału 0 (zero). Zapisz algorytm, który sprawdza on-line, czy w tym ciągu wystąpiły liczby przekraczające zadaną wartość p
+//Modyfikacja - lista z wejściowa założenia będzie kończyła się wartością 0
+function analyzeInput(list, p){
+    let _occured = false;
+    list.forEach(element => {
+        if (element > p){
+            _occured = true;
+        }
+    })
+    return _occured;
+}
+
+// Ile liczb w ciągu liczb dodatnich (ciąg kończy się odczytem 0) przekracza określoną wartość p?
+function analyzeInput2(list, p){
+    let _occured_count = 0;
+    list.forEach(element => {
+        if (element > p){
+            _occured_count++;
+        }
+    })
+    return _occured_count;
+}
 function BubbleSort(tab) {
     let sorted = true
     for (let i = 0; i < tab.length; i++) {
@@ -330,4 +352,4 @@ function SelectionSort(tab) {
     }
 }
 
-module.exports = { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isPrime2, BubbleSort, InsertSort, SelectionSort };
+module.exports = { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isPrime2, analyzeInput,analyzeInput2,  BubbleSort, InsertSort, SelectionSort };
