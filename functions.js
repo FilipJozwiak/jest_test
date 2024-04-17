@@ -216,6 +216,73 @@ function metersToMiles(meters) {
     return meters / 1608;
 }
 
+// Zapisz algorytm, który z trzech danych liczb całkowitych wybiera wartość największą.
+function maxNumber(a, b, c) {
+    let _max = a;
+    if (b > a) {
+        _max = b;
+    }
+    if (c > _max) {
+        _max = c;
+    }
+    return _max;
+}
+
+// Zapisać algorytm, który sprawdza, czy podane trzy wartości mogą być długościami boków trójkąta
+function canBeTriangle(a, b, c) {
+    let _max = a;
+    let _max_a = true;
+    let _max_b = false;
+    let _max_c = false;
+    if (b > _max) {
+        _max = b;
+        _max_a = false;
+        _max_b = true;
+    }
+    if (c > _max) {
+        _max = c;
+        _max_a = false;
+        _max_b = false;
+        _max_c = true;
+    }
+    if (_max_a) {
+        return b + c > a;
+    } else if (_max_b) {
+        return a + c > b;
+    } else if (_max_c) {
+        return a + b > c;
+    }
+}
+
+// Zapisz algorytm obliczający wartość funkcji skoku jednostkowego, określoną następująco : f(x, p) -> 1 dla x > p, 0 dla x <= p
+function UnitStep(x, p) {
+    if (x > p) {
+        return 1;
+    } else if (x <= p) {
+        return 0;
+    }
+}
+
+// Zapisz algorytm sprawdzający czy dana liczba całkowita n>=2 jest liczbą parzystą
+function isEven(n){
+    if (n % 2 == 0){
+        return true;
+    } else{
+        return false;
+    }
+}
+
+// Sprawdzić, czy wczytana liczba całkowita n>1 jest liczbą pierwszą
+function isPrime2(n) {
+    let prime = true;
+    for (let i = n - 1; i >= 2; i--) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    return prime;
+}
+
 function BubbleSort(tab) {
     let sorted = true
     for (let i = 0; i < tab.length; i++) {
@@ -263,4 +330,4 @@ function SelectionSort(tab) {
     }
 }
 
-module.exports = { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, BubbleSort, InsertSort, SelectionSort };
+module.exports = { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isPrime2, BubbleSort, InsertSort, SelectionSort };

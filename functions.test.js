@@ -1,4 +1,4 @@
-const { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, BubbleSort, InsertSort, SelectionSort } = require('./functions.js');
+const { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isPrime2, BubbleSort, InsertSort, SelectionSort } = require('./functions.js');
 
 test("sum test", () => {
     expect(sum(1, 5)).toBe(6);
@@ -119,7 +119,39 @@ test("metersToMiles test", () => {
     expect(metersToMiles(0)).toBe(0);
     expect(metersToMiles(1608)).toBe(1);
     expect(metersToMiles(804)).toBe(0.5);
+})
 
+test("maxNumber test", () => {
+    expect(maxNumber(0, 1, 3)).toBe(3);
+    expect(maxNumber(1, 2, 4)).toBe(4);
+    expect(maxNumber(-2, 0, 0)).toBe(0);
+})
+
+test("canBeTriangle test", () => {
+    expect(canBeTriangle(1, 1, 1)).toBe(true);
+    expect(canBeTriangle(1, 2, 4)).toBe(false);
+})
+
+test("UnitStep test", () => {
+    expect(UnitStep(1, 3)).toBe(0);
+    expect(UnitStep(3, 3)).toBe(0);
+    expect(UnitStep(4, 3)).toBe(1);
+})
+
+test("isEven test", () => {
+    expect(isEven(5)).toBe(false);
+    expect(isEven(7)).toBe(false);
+    expect(isEven(74)).toBe(true);
+    expect(isEven(2)).toBe(true);
+})
+
+test("isPrime2 test", () => {
+    expect(isPrime2(5)).toBe(true);
+    expect(isPrime2(7)).toBe(true);
+    expect(isPrime2(4)).toBe(false);
+    expect(isPrime2(15)).toBe(false);
+    expect(isPrime2(17)).toBe(true);
+    expect(isPrime2(66)).toBe(false);
 })
 
 test("BubbleSort test", () => {
