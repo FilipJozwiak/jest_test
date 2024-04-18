@@ -360,6 +360,111 @@ function iterSum(n, eps) {
     return _res;
 }
 
+// Zapisz algorytm, który znajdzie w zdefiniowanej tablicy jednowymiarowej element największy oraz indeks jego ostatniego wystąpienia.
+function checkList(tab) {
+    if (tab.length == 0) {
+        return [-1, -1];
+    } else {
+        let _max = tab[0];
+        let _index = 0;
+        for (let i = 0; i < tab.length; i++) {
+            if (tab[i] > _max) {
+                _max = tab[i];
+                _index = i;
+            }
+        }
+        return [_max, _index];
+    }
+}
+
+// Zapisz algorytm, który odwróci kolejność elementów w zdefiniowanej tablicy jednowymiarowej.
+function invertList(tab) {
+    for (let i = 0; i < tab.length / 2; i++) {
+        let temp = tab[i];
+        tab[i] = tab[tab.length - 1 - i];
+        tab[tab.length - 1 - i] = temp;
+    }
+    return tab;
+}
+
+// Zapisz algorytm, który obliczy ilość elementów w zdefiniowanej tablicy jednowymiarowej podzielnych przez x (x jest argumentem funkcji)
+function countList(tab, x) {
+    let sum = 0;
+    tab.forEach(element => {
+        if (element % x == 0) {
+            sum++;
+        }
+    })
+    return sum;
+}
+
+// Zapisz algorytm, który przeanalizuje dwie zdefiniowane tablice jednowymiarowe(o tym samym rozmiarze) i wyświetli indeks oraz wartość jeżeli w obydwu tych tablicach elementy pod danym indeksem są takie same
+function compareLists(tab1, tab2) {
+    if (tab1.length != tab2.length) {
+        return -1;
+    } else if (tab1 == [] | tab2 == []) {
+        return - 1;
+    } else {
+        for (let i = 0; i < tab1.length; i++) {
+            if (tab1[i] == tab2[i]) {
+                return [i, tab1[i]];
+            }
+        }
+    }
+    return -1;
+}
+
+// Zapisz algorytm, który w zdefiniowanej tablicy jednowymiarowej zamieni miejscami elementy o indeksach x i y (x i y są argumentami funkcji).
+function swapElements(list, x, y) {
+    if (list == [] | x > list.length - 1 | y > list.length - 1) {
+        return -1;
+    } else {
+        let temp = list[x];
+        list[x] = list[y];
+        list[y] = temp;
+    }
+    return list;
+}
+
+// Zapisz algorytm rekurencyjny konwertujący liczbę a (a jest argumentem funkcji) z systemu dziesiętnego na ósemkowy
+function decimalToOctal(num) {
+    if (num === 0) {
+        return '0';
+    } else if (num < 0) {
+        return '-' + decimalToOctal(-num);
+    } else {
+        if (num < 8) {
+            return num.toString();
+        } else {
+            return decimalToOctal(Math.floor(num / 8)) + (num % 8).toString();
+        }
+    }
+}
+
+// Dodatkowo zmodyfikuj powyższy algorytm tak, aby możliwe było zdefiniowanie poprzez dodatkowy argument systemu, na który wartość a ma zostać przekonwertowana
+function decimalToAny(num, base) {
+    if (num == 0) {
+        return '0';
+    } else if (num < 0) {
+        return '-' + decimalToAny(-num, base);
+    } else {
+        if (num < base) {
+            return num.toString()
+        } else {
+            return decimalToAny(Math.floor(num / base), base) + (num % base).toString();
+        }
+    }
+}
+
+// Zapisz algorytm rekurencyjny, obliczający największy wspólny dzielnik dla dwóch podanych liczb a i b
+function nww(a, b) {
+    if (b === 0) {
+        return a;
+    } else {
+        return nww(b, a % b);
+    }
+}
+
 function BubbleSort(tab) {
     let sorted = true
     for (let i = 0; i < tab.length; i++) {
@@ -407,4 +512,4 @@ function SelectionSort(tab) {
     }
 }
 
-module.exports = { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isPrime2, analyzeInput, analyzeInput2, analyzeInput3, factorialIter, fibonacciIter, iterSum, BubbleSort, InsertSort, SelectionSort };
+module.exports = { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isPrime2, analyzeInput, analyzeInput2, analyzeInput3, factorialIter, fibonacciIter, iterSum, checkList, invertList, countList, compareLists, swapElements, decimalToOctal, decimalToAny, nww, BubbleSort, InsertSort, SelectionSort };

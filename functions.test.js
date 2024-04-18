@@ -1,4 +1,4 @@
-const { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isPrime2, analyzeInput, analyzeInput2, analyzeInput3, factorialIter, fibonacciIter, iterSum, BubbleSort, InsertSort, SelectionSort } = require('./functions.js');
+const { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isPrime2, analyzeInput, analyzeInput2, analyzeInput3, factorialIter, fibonacciIter, iterSum, checkList, invertList, countList, compareLists, swapElements, decimalToOctal, decimalToAny, nww, BubbleSort, InsertSort, SelectionSort } = require('./functions.js');
 
 test("sum test", () => {
     expect(sum(1, 5)).toBe(6);
@@ -196,6 +196,61 @@ test("fibonacciIter", () => {
 
 test("iterSum", () => {
     expect(iterSum(1, 1)).toBe(0.5);
+});
+
+test("checkList", () => {
+    expect(checkList([1, 2, 3, 4])).toEqual([4, 3]);
+    expect(checkList([-4, 1, 2, 3, 4, -4])).toEqual([4, 4]);
+    expect(checkList([4, 1, 2, 3, 4, -4])).toEqual([4, 0]);
+    expect(checkList([])).toEqual([-1, -1]);
+});
+
+test("invertList", () => {
+    expect(invertList([1, 2, 3, 4])).toEqual([4, 3, 2, 1]);
+    expect(invertList([-4, 1, 2, 3, 4, -4])).toEqual([-4, 4, 3, 2, 1, -4]);
+    expect(invertList([4, 1, 2, 3, 4, -4])).toEqual([-4, 4, 3, 2, 1, 4]);
+    expect(invertList([])).toEqual([]);
+});
+
+test("countList", () => {
+    expect(countList([1, 2, 3, 4], 1)).toEqual(4);
+    expect(countList([1, 2, 3, 4, 6, 8, 10], 2)).toEqual(5);
+    expect(countList([1, 2, 3, 4, 6, 8, 9, 10], 3)).toEqual(3);
+    expect(countList([1, 2, 3, 4, 5, 15, 6, 8, 10], 5)).toEqual(3);
+});
+
+test("compareLists", () => {
+    expect(compareLists([1, 2, 3, 4], [1, 2, 3, 4])).toEqual([0, 1]);
+    expect(compareLists([1, 2, 3, 4], [1, 2, 3, 4, 5])).toEqual(-1);
+    expect(compareLists([], [])).toEqual(-1);
+    expect(compareLists([], [1])).toEqual(-1);
+    expect(compareLists([1, 2, 3, 4], [5, 5, 5, 5])).toEqual(-1);
+    expect(compareLists([1, 2, 3, 4], [5, 5, 5, 4])).toEqual([3, 4]);
+});
+
+test("compareLists", () => {
+    expect(swapElements([1, 2, 3, 4], 2, 3)).toEqual([1, 2, 4, 3]);
+    expect(swapElements([1, 2, 3, 4], 2, 6)).toEqual(-1);
+    expect(swapElements([], 2, 6)).toEqual(-1);
+    expect(swapElements([1, 2, 3, 4, 5, 6, 7], 2, 5)).toEqual([1, 2, 6, 4, 5, 3, 7]);
+});
+
+test("decimalToOctal test", () => {
+    expect(decimalToOctal(1)).toBe('1');
+    expect(decimalToOctal(8)).toBe('10');
+});
+
+test("decimalToAny test", () => {
+    expect(decimalToAny(1, 2)).toEqual('1');
+    expect(decimalToAny(10, 2)).toEqual('1010');
+    expect(decimalToAny(8, 5)).toEqual('13');
+});
+
+test("nww test", () => {
+    expect(nww(1, 2)).toEqual(1);
+    expect(nww(4, 2)).toEqual(2);
+    expect(nww(10, 5)).toEqual(5);
+    expect(nww(30, 50)).toEqual(10);
 });
 
 test("BubbleSort test", () => {
