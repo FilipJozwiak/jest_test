@@ -285,10 +285,10 @@ function isPrime2(n) {
 
 // Algorytm wczytuje z wejścia kolejne liczby całkowite dodatnie. Wczytywanie liczb kończy się po wczytaniu sygnału 0 (zero). Zapisz algorytm, który sprawdza on-line, czy w tym ciągu wystąpiły liczby przekraczające zadaną wartość p
 //Modyfikacja - lista z wejściowa założenia będzie kończyła się wartością 0
-function analyzeInput(list, p){
+function analyzeInput(list, p) {
     let _occured = false;
     list.forEach(element => {
-        if (element > p){
+        if (element > p) {
             _occured = true;
         }
     })
@@ -296,15 +296,58 @@ function analyzeInput(list, p){
 }
 
 // Ile liczb w ciągu liczb dodatnich (ciąg kończy się odczytem 0) przekracza określoną wartość p?
-function analyzeInput2(list, p){
+function analyzeInput2(list, p) {
     let _occured_count = 0;
     list.forEach(element => {
-        if (element > p){
+        if (element > p) {
             _occured_count++;
         }
     })
     return _occured_count;
 }
+
+// Znaleźć wartość minimalną w ciągu liczb dodatnich zakończonym wczytaniem 0
+function analyzeInput3(list) {
+    if (list.length == 0) {
+        return -1;
+    } else {
+        let _min = list[0];
+        list.forEach(element => {
+            if (element < _min & element != 0) {
+                _min = element;
+            }
+        })
+        return _min;
+    }
+}
+
+// Zapisać iteracyjny algorytm obliczający wartość n! dla zadanej wartości n
+function factorialIter(n) {
+    let _res = 1;
+    for (let i = n; i > 0; i--) {
+        _res = _res * i;
+    }
+    return _res;
+}
+
+// Zapisać iteracyjny algorytm znajdujący n - ty wyraz ciągu Fibonacciego
+function fibonacciIter(n) {
+    if (n <= 1) {
+        return n;
+    } else {
+        let a = 1;
+        let b = 1;
+        for (let i = 2; i <= n; i++) {
+            let temp = b;
+            b = a + b;
+            a = temp;
+        }
+        return b;
+    }
+}
+
+
+
 function BubbleSort(tab) {
     let sorted = true
     for (let i = 0; i < tab.length; i++) {
@@ -352,4 +395,4 @@ function SelectionSort(tab) {
     }
 }
 
-module.exports = { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isPrime2, analyzeInput,analyzeInput2,  BubbleSort, InsertSort, SelectionSort };
+module.exports = { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isPrime2, analyzeInput, analyzeInput2, analyzeInput3, factorialIter, fibonacciIter, BubbleSort, InsertSort, SelectionSort };

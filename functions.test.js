@@ -1,4 +1,4 @@
-const { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isPrime2, analyzeInput, analyzeInput2, BubbleSort, InsertSort, SelectionSort } = require('./functions.js');
+const { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isPrime2, analyzeInput, analyzeInput2, analyzeInput3, factorialIter, fibonacciIter, BubbleSort, InsertSort, SelectionSort } = require('./functions.js');
 
 test("sum test", () => {
     expect(sum(1, 5)).toBe(6);
@@ -168,6 +168,33 @@ test("analyzeInput2 test", () => {
     expect(analyzeInput2([1, 2, 3, 4, 5, 0], 5)).toBe(0);
     expect(analyzeInput2([1, 2, 3, 4, 5, 0], 1)).toBe(4);
 })
+
+test("analyzeInput3 test", () => {
+    expect(analyzeInput3([])).toBe(-1);
+    expect(analyzeInput3([1, 2, 3, 4, 5, 0])).toBe(1);
+    expect(analyzeInput3([1, 2, 3, 4, 5, -3, 0])).toBe(-3);
+    expect(analyzeInput3([1, 2, 3, 4, 5, 0.2, 0])).toBe(0.2);
+})
+
+test("factorialIter", () => {
+    expect(factorialIter(1)).toBe(1);
+    expect(factorialIter(2)).toBe(2);
+    expect(factorialIter(3)).toBe(6);
+    expect(factorialIter(4)).toBe(24);
+    expect(factorialIter(5)).toBe(120);
+})
+
+test("fibonacciIter", () => {
+    expect(fibonacciIter(1)).toBe(1);
+    expect(fibonacciIter(2)).toBe(2);
+    expect(fibonacciIter(3)).toBe(3);
+    expect(fibonacciIter(4)).toBe(5);
+    expect(fibonacciIter(5)).toBe(8);
+    expect(fibonacciIter(6)).toBe(13);
+    expect(fibonacciIter(7)).toBe(21);
+    expect(fibonacciIter(8)).toBe(34);
+})
+
 test("BubbleSort test", () => {
     let tab = [1, -1, 5, 15, 33, -20, 70];
     BubbleSort(tab);
