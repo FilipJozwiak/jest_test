@@ -346,7 +346,19 @@ function fibonacciIter(n) {
     }
 }
 
-
+// Zapisać iteracyjny algorytm obliczający sumę ciągu
+function iterSum(n, eps) {
+    let _res = 0;
+    let _prev = 0;
+    for (let i = 1; i <= n; i++) {
+        _res += 1 / (i * (i + 1));
+        if (Math.abs(_res - _prev) <= eps) {
+            return _res;
+        }
+        _prev = _res;
+    }
+    return _res;
+}
 
 function BubbleSort(tab) {
     let sorted = true
@@ -395,4 +407,4 @@ function SelectionSort(tab) {
     }
 }
 
-module.exports = { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isPrime2, analyzeInput, analyzeInput2, analyzeInput3, factorialIter, fibonacciIter, BubbleSort, InsertSort, SelectionSort };
+module.exports = { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isPrime2, analyzeInput, analyzeInput2, analyzeInput3, factorialIter, fibonacciIter, iterSum, BubbleSort, InsertSort, SelectionSort };
