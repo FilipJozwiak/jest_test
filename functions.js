@@ -272,6 +272,11 @@ function isEven(n) {
     }
 }
 
+// Napisac program sprawdzajacy czy podana liczba jest podzielna przez 3,4 oraz 12. Dla przykladu 12 powinno zwrocic prawde, 24 powinno zwrocic prawde, 120 tez. 66 powinno zwrocic falsz.
+function isDivibleBy12(n){
+    return (n % 12 == 0);
+}
+
 // Sprawdzić, czy wczytana liczba całkowita n>1 jest liczbą pierwszą
 function isPrime2(n) {
     let prime = true;
@@ -512,4 +517,4 @@ function SelectionSort(tab) {
     }
 }
 
-module.exports = { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isPrime2, analyzeInput, analyzeInput2, analyzeInput3, factorialIter, fibonacciIter, iterSum, checkList, invertList, countList, compareLists, swapElements, decimalToOctal, decimalToAny, nww, BubbleSort, InsertSort, SelectionSort };
+module.exports = { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven,isDivibleBy12, isPrime2, analyzeInput, analyzeInput2, analyzeInput3, factorialIter, fibonacciIter, iterSum, checkList, invertList, countList, compareLists, swapElements, decimalToOctal, decimalToAny, nww, BubbleSort, InsertSort, SelectionSort };

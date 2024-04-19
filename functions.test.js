@@ -1,4 +1,4 @@
-const { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isPrime2, analyzeInput, analyzeInput2, analyzeInput3, factorialIter, fibonacciIter, iterSum, checkList, invertList, countList, compareLists, swapElements, decimalToOctal, decimalToAny, nww, BubbleSort, InsertSort, SelectionSort } = require('./functions.js');
+const { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven,isDivibleBy12, isPrime2, analyzeInput, analyzeInput2, analyzeInput3, factorialIter, fibonacciIter, iterSum, checkList, invertList, countList, compareLists, swapElements, decimalToOctal, decimalToAny, nww, BubbleSort, InsertSort, SelectionSort } = require('./functions.js');
 
 test("sum test", () => {
     expect(sum(1, 5)).toBe(6);
@@ -112,6 +112,7 @@ test("onlyUniqe test", () => {
     expect(onlyUniqe([1, 2, 34, 5])).toEqual([1, 2, 34, 5]);
     expect(onlyUniqe([1, 1, 2, 34, 5])).toEqual([2, 34, 5]);
     expect(onlyUniqe([0, 0, 0])).toEqual([]);
+    expect(onlyUniqe([null, null, null])).toEqual([]);
 });
 
 test("metersToMiles test", () => {
@@ -142,6 +143,17 @@ test("isEven test", () => {
     expect(isEven(7)).toBe(false);
     expect(isEven(74)).toBe(true);
     expect(isEven(2)).toBe(true);
+});
+
+test("isDivibleBy12 test", () => {
+    expect(isDivibleBy12(5)).toBe(false);
+    expect(isDivibleBy12(7)).toBe(false);
+    expect(isDivibleBy12(74)).toBe(false);
+    expect(isDivibleBy12(2)).toBe(false);
+    expect(isDivibleBy12(72)).toBe(true);
+    expect(isDivibleBy12(0)).toBe(true);
+    expect(isDivibleBy12(24)).toBe(true);
+    expect(isDivibleBy12(66)).toBe(false);
 });
 
 test("isPrime2 test", () => {
