@@ -526,6 +526,83 @@ function FahrenheitToCelsius(fahrenheit) {
     return (fahrenheit - 32) * (5 / 9);
 }
 
+// Stworzyc program ktory pokaze czesc wspolna dwoch tablic
+function intersectOfTables(tab1, tab2) {
+    let res = [];
+    let d = {};
+    tab1.forEach(element => {
+        d[element] = null;
+    })
+    tab2.forEach(element => {
+        if (element in d) {
+            res.push(element);
+        }
+    })
+    return res;
+}
+
+// Stworzyc program ktory obliczy ile jest liczb parzystych I nieparzystych w tablicy
+function evenAndOdds(tab) {
+    let even = 0;
+    let odd = 0;
+    tab.forEach(element => {
+        if (element % 2 == 0) {
+            even++;
+        } else if (element % 2 != 0) {
+            odd++;
+        }
+    })
+    return [even, odd];
+}
+
+// Stworzyc program ktory znajdzie najmniejsza oraz najwieksza liczbe w tablicy
+function minAndMax(tab) {
+    if (tab.length == 0) {
+        return null;
+    } else {
+        let min = tab[0];
+        let max = tab[0];
+        tab.forEach(element => {
+            if (element < min) {
+                min = element;
+            }
+            if (element > max) {
+                max = element;
+            }
+        })
+        return [min, max];
+    }
+}
+
+// Stworzyc program ktory z podanej tablicy usunie tylko parzyste element
+function deleteEven(tab) {
+    tab = tab.filter(function (element) {
+        return element % 2 != 0;
+    })
+    return tab;
+}
+
+// Stworzyc program ktory z elementow tablicy stworzy nowa tablice, skopuje te element, ktore spełniają następujące warunki
+// 1. Element jest podzielny przez 5 oraz przez 6
+// 2. Reszta z dzielenia wartosci element przez 7 jest rowna 1 ( elment % 7 == 1)
+function newTabCustom(tab) {
+    new_tab = tab.filter((element) => {
+        return ((element % 5 == 0 & element % 6 == 0) | (element % 7 == 1));
+    })
+    return new_tab;
+}
+
+// Stworzyc program ktory do podanej tablicy doda element rowne kwadratowi kazdego element .Tablica = [1,3,5]
+// 1. Iteracja 1 = [1,3,5,1,9,25]
+// 2. Iteracja 2 = [1,3,5,1,9,25,1,9,25,1,81,625]
+function tabSquared(tab){
+    let res = tab;
+    tab.forEach(element => {
+        res.push(element * element);
+    })
+    return res;
+}
+
 function BubbleSort(tab) {
     let sorted = true
     for (let i = 0; i < tab.length; i++) {
@@ -573,4 +650,4 @@ function SelectionSort(tab) {
     }
 }
 
-module.exports = { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isDivibleBy12, isPrime2, analyzeInput, analyzeInput2, analyzeInput3, factorialIter, fibonacciIter, iterSum, checkList, invertList, countList, compareLists, swapElements, decimalToOctal, decimalToAny, nww, divisible0to12345for, divisible0to12345while, divisibleCustom, metersToDecimeters, litersToPints, inchesToCm, FahrenheitToCelsius, BubbleSort, InsertSort, SelectionSort };
+module.exports = { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isDivibleBy12, isPrime2, analyzeInput, analyzeInput2, analyzeInput3, factorialIter, fibonacciIter, iterSum, checkList, invertList, countList, compareLists, swapElements, decimalToOctal, decimalToAny, nww, divisible0to12345for, divisible0to12345while, divisibleCustom, metersToDecimeters, litersToPints, inchesToCm, FahrenheitToCelsius, intersectOfTables, evenAndOdds, minAndMax, deleteEven, newTabCustom,tabSquared,  BubbleSort, InsertSort, SelectionSort };

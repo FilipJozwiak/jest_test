@@ -1,4 +1,4 @@
-const { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isDivibleBy12, isPrime2, analyzeInput, analyzeInput2, analyzeInput3, factorialIter, fibonacciIter, iterSum, checkList, invertList, countList, compareLists, swapElements, decimalToOctal, decimalToAny, nww, divisible0to12345for, divisibleCustom, metersToDecimeters, inchesToCm, FahrenheitToCelsius, BubbleSort, InsertSort, SelectionSort, divisible0to12345while, litersToPints } = require('./functions.js');
+const { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isDivibleBy12, isPrime2, analyzeInput, analyzeInput2, analyzeInput3, factorialIter, fibonacciIter, iterSum, checkList, invertList, countList, compareLists, swapElements, decimalToOctal, decimalToAny, nww, divisible0to12345for, divisibleCustom, metersToDecimeters, inchesToCm, FahrenheitToCelsius, intersectOfTables, BubbleSort, InsertSort, SelectionSort, divisible0to12345while, litersToPints, evenAndOdds, minAndMax, deleteEven, newTabCustom, tabSquared } = require('./functions.js');
 
 test("sum test", () => {
     expect(sum(1, 5)).toBe(6);
@@ -292,12 +292,46 @@ test("inchesToCm", () => {
     expect(inchesToCm(0)).toBe(0);
 });
 
+test("intersectOfTables", () => {
+    expect(intersectOfTables([1, 2, 3], [1, 2])).toEqual([1, 2]);
+    expect(intersectOfTables([1, 2, 3], [1])).toEqual([1]);
+    expect(intersectOfTables([], [])).toEqual([]);
+    expect(intersectOfTables([1, 2, 3, 4, 5, 6, 7, 8, 9], [3, 4, 11, 35, 64, 2, 8, 5])).toEqual(expect.arrayContaining([2, 3, 4, 5, 8]));
+});
+
 test("FahrenheitToCelsius", () => {
     expect(FahrenheitToCelsius(32)).toBe(0);
     expect(FahrenheitToCelsius(50)).toBe(10);
     expect(FahrenheitToCelsius(98.6)).toBe(37);
     expect(FahrenheitToCelsius(194)).toBe(90);
     expect(FahrenheitToCelsius(212)).toBe(100);
+});
+
+test("evenAndOdds test", () => {
+    expect(evenAndOdds([1, 2, 3, 4, 5, 7, 5, 23, 654, 123, 321])).toEqual([3, 8]);
+    expect(evenAndOdds([1, 1])).toEqual([0, 2]);
+    expect(evenAndOdds([1, 12])).toEqual([1, 1]);
+});
+
+test("evenAndOdds test", () => {
+    expect(minAndMax([1, 2, 3, 4, 5, 0, -2])).toEqual([-2, 5]);
+    expect(minAndMax([])).toEqual(null);
+    expect(minAndMax([2513, -1234, -923, 55421, 1])).toEqual([-1234, 55421]);
+});
+
+test("deleteEven test", () => {
+    expect(deleteEven([-2, 32, 11, 3, 4, 1124556, 2])).toEqual([11, 3]);
+    expect(deleteEven([2])).toEqual([]);
+});
+
+test("deleteEven test", () => {
+    expect(newTabCustom([30, 22])).toEqual([30, 22]);
+    expect(newTabCustom([2, 3, 4, 5, 6, 30, 22])).toEqual([30, 22]);
+});
+
+test("tabSquared test", () => {
+    expect(tabSquared([1, 3, 5])).toEqual([1, 3, 5, 1, 9, 25]);
+    expect(tabSquared([1, 3, 5, 1, 9, 25])).toEqual([1, 3, 5, 1, 9, 25, 1, 9, 25, 1, 81, 625]);
 });
 
 test("BubbleSort test", () => {
