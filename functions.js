@@ -273,7 +273,7 @@ function isEven(n) {
 }
 
 // Napisac program sprawdzajacy czy podana liczba jest podzielna przez 3,4 oraz 12. Dla przykladu 12 powinno zwrocic prawde, 24 powinno zwrocic prawde, 120 tez. 66 powinno zwrocic falsz.
-function isDivibleBy12(n){
+function isDivibleBy12(n) {
     return (n % 12 == 0);
 }
 
@@ -470,6 +470,62 @@ function nww(a, b) {
     }
 }
 
+// Napisać program za pomoca instrukcji for oraz while ktory bedzie wypisywala wszystkie liczby podzielne przez 3, 8 oraz 12 z zakresu od 0 do 12345.
+function divisible0to12345for() {
+    let res = [];
+    for (let i = 0; i < 12346; i++) {
+        let divby3 = (i % 3 == 0);
+        let divby8 = (i % 8 == 0);
+        let divby12 = (i % 12 == 0);
+        if (divby3 | divby8 | divby12) {
+            res.push(i);
+        }
+    }
+    // console.log(res);
+    return res;
+}
+
+function divisible0to12345while() {
+    let res = [];
+    let i = 0;
+    while (i < 12346) {
+        let divby3 = (i % 3 == 0);
+        let divby8 = (i % 8 == 0);
+        let divby12 = (i % 12 == 0);
+        if (divby3 | divby8 | divby12) {
+            res.push(i);
+        }
+        i++;
+    }
+    console.log(res);
+    return res;
+}
+
+// Napisac funkcje ktora przyjmuje jedna liczbe typu int I zwrocic z niej informacje czy liczba ta jest podzielna przez 10, 11, 34.
+function divisibleCustom(n) {
+    return [n % 10 == 0, n % 11 == 0, n % 34 == 0];
+}
+
+// Metry na decymetry
+function metersToDecimeters(m) {
+    return m * 10;
+}
+
+// litry na pinty
+function litersToPints(liters) {
+    return liters * 2.11337642;
+}
+
+//  cale na cm.
+function inchesToCm(inches) {
+    return inches / 2.54;
+}
+
+// Temperature w Fahrenheit na Celcjusza
+function FahrenheitToCelsius(fahrenheit) {
+    return (fahrenheit - 32) * (5 / 9);
+}
+
 function BubbleSort(tab) {
     let sorted = true
     for (let i = 0; i < tab.length; i++) {
@@ -517,4 +573,4 @@ function SelectionSort(tab) {
     }
 }
 
-module.exports = { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven,isDivibleBy12, isPrime2, analyzeInput, analyzeInput2, analyzeInput3, factorialIter, fibonacciIter, iterSum, checkList, invertList, countList, compareLists, swapElements, decimalToOctal, decimalToAny, nww, BubbleSort, InsertSort, SelectionSort };
+module.exports = { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isDivibleBy12, isPrime2, analyzeInput, analyzeInput2, analyzeInput3, factorialIter, fibonacciIter, iterSum, checkList, invertList, countList, compareLists, swapElements, decimalToOctal, decimalToAny, nww, divisible0to12345for, divisible0to12345while, divisibleCustom, metersToDecimeters, litersToPints, inchesToCm, FahrenheitToCelsius, BubbleSort, InsertSort, SelectionSort };

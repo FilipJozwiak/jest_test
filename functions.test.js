@@ -1,4 +1,4 @@
-const { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven,isDivibleBy12, isPrime2, analyzeInput, analyzeInput2, analyzeInput3, factorialIter, fibonacciIter, iterSum, checkList, invertList, countList, compareLists, swapElements, decimalToOctal, decimalToAny, nww, BubbleSort, InsertSort, SelectionSort } = require('./functions.js');
+const { sum, largestElement, removeDuplicats, toUpper, meanValue, isPalindrome, fibonacci, isPrime, toBinary, invertText, identical, countLetter, removeWhitespaces, removeValue, randomItem, CelsiusToFahrenheit, indexOfItem, onlyUniqe, metersToMiles, maxNumber, canBeTriangle, UnitStep, isEven, isDivibleBy12, isPrime2, analyzeInput, analyzeInput2, analyzeInput3, factorialIter, fibonacciIter, iterSum, checkList, invertList, countList, compareLists, swapElements, decimalToOctal, decimalToAny, nww, divisible0to12345for, divisibleCustom, metersToDecimeters, inchesToCm, FahrenheitToCelsius, BubbleSort, InsertSort, SelectionSort, divisible0to12345while, litersToPints } = require('./functions.js');
 
 test("sum test", () => {
     expect(sum(1, 5)).toBe(6);
@@ -263,6 +263,41 @@ test("nww test", () => {
     expect(nww(4, 2)).toEqual(2);
     expect(nww(10, 5)).toEqual(5);
     expect(nww(30, 50)).toEqual(10);
+});
+
+test("divisible0to12345", () => {
+    expect(divisible0to12345for()).toEqual(divisible0to12345while());
+});
+
+test("divisibleCustom", () => {
+    expect(divisibleCustom(10)).toEqual([true, false, false]);
+    expect(divisibleCustom(11)).toEqual([false, true, false]);
+    expect(divisibleCustom(34)).toEqual([false, false, true]);
+    expect(divisibleCustom(10 * 11 * 34)).toEqual([true, true, true]);
+});
+
+test("metersToDecimeters", () => {
+    expect(metersToDecimeters(10)).toBe(100);
+    expect(metersToDecimeters(1)).toBe(10);
+    expect(metersToDecimeters(0)).toBe(0);
+});
+
+test("litersToPints", () => {
+    expect(litersToPints(1)).toBe(2.11337642);
+    expect(litersToPints(0)).toBe(0);
+});
+
+test("inchesToCm", () => {
+    expect(inchesToCm(2.54)).toBe(1);
+    expect(inchesToCm(0)).toBe(0);
+});
+
+test("FahrenheitToCelsius", () => {
+    expect(FahrenheitToCelsius(32)).toBe(0);
+    expect(FahrenheitToCelsius(50)).toBe(10);
+    expect(FahrenheitToCelsius(98.6)).toBe(37);
+    expect(FahrenheitToCelsius(194)).toBe(90);
+    expect(FahrenheitToCelsius(212)).toBe(100);
 });
 
 test("BubbleSort test", () => {
