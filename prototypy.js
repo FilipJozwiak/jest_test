@@ -82,6 +82,51 @@ function Counter(value) {
     }
 }
 
+// Prototypt z M. Daszuta
+let animal = {
+    eats: true
+};
+// można skorzystać z:
+let zwierze = Object.create(animal);
+console.log("Zwierzak: ", Object.getPrototypeOf(zwierze) === animal);
+
+
+let rabbit = {
+    jumps: true
+    // albo ,__proto__ = animal
+};
+
+rabbit.__proto__ = animal;
+console.log("Je i skacze: ", rabbit.eats, rabbit.jumps);
+console.log(Object.keys(rabbit));
+for(let prop in rabbit){
+    console.log(prop, rabbit.hasOwnProperty(prop));
+}
+
+
+// Można tak, to jest lepiej niż przez __proto__
+function Rabbit(name){
+    this.name = name;
+}   
+Rabbit.prototype = animal;
+
+krolik = new Rabbit("Nowy Krolik"); // krolik.__proto__ = animal
+krolik_klon = new krolik.constructor("Krolik Klon");
+console.log(krolik, krolik.eats);
+console.log(krolik_klon, krolik_klon.eats);
+Object.setPrototypeOf(krolik_klon, animal);
+console.log(krolik_klon, krolik_klon.eats);
+
+
+// Przykład duck typing taki trochę, pożyczanie metod
+let obj = {
+    0: "Coś",
+    1: "Nic",
+    length: 2
+}
+obj.join = Array.prototype.join;
+console.log("Duck typing: ", obj.join('+++'));
+
 // Prototypy i Tablice:
 // Dodaj metodę last do prototypu Array, która zwróci ostatni element tablicy.
 

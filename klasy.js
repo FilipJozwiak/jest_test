@@ -17,7 +17,7 @@ class Person {
     }
 
     static compareAge(person1, person2) {
-        return person1.age > person2.age ? person1 : person2;
+        return person1.age - person2.age;
     }
 
     copy(){
@@ -120,6 +120,11 @@ class Circle extends Shape{
         super();
         this.radius = radius;
     }
+
+    set area(value){
+        this.radius = Math.sqrt(value/Math.PI);
+    }
+
     get area(){
         return Math.pow(this.radius, 2) * Math.PI;
     }
@@ -204,11 +209,30 @@ class Queue {
     }
 }
 
+// Klasa generowana w kodzie - było wspomniane na ćwiczeniach
+function makeClass(phrase){
+    return class{
+        sayHi(){
+            console.log(phrase);
+        }
+    };
+}
+
+
+let mojanowaklasa =  makeClass("Hello");
+let testowa = new mojanowaklasa().sayHi();
+console.log(typeof testowa); // typ undefined, klasa anonimowa
+
 let p = new Person("Janek", 15);
 // p.greet();
 let p2 = new Employee("Jasiu", 24, "Pomywacz");
 // p2.greet();
 // p2.work();
+
+let persons = [p, p2, new Person("Zdzisiu", 66), new Person("Misiu", 2)];
+persons.sort(Person.compareAge);
+console.log(persons);
+
 
 console.log(Person.compareAge(p, p2));
 
@@ -231,6 +255,11 @@ d.speak();
 let circle = new Circle(12);
 let square = new Square(12);
 console.log(circle.area, square.area);
+
+console.log(circle.area);
+circle.radius = 24;
+console.log(circle.area);
+console.log(circle.radius, circle.area);
 
 let book1 = new Book("Tolkien", "LOTR");
 let book2 = new Book("Tolkien", "LOTR");
